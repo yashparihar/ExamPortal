@@ -1,51 +1,42 @@
 {
-  "totalQuestion": "10",
- "questionBank": [
-   {
-     "question": "q 1",
-     "A":"ans a",
-     "B":"ans b",
-     "C":"ans c",
-     "D":"ans d",
-     "correct": "B"
-   },
-   {
-     "question": "q 2",
-     "A":"ans a",
-     "B":"ans b",
-     "C":"ans c",
-     "D":"ans d",
-     "correct": "B"
-   },
-   {
-    "question": "q 3",
-    "A":"ans a",
-    "B":"ans b",
-    "C":"ans c",
-    "D":"ans d",
-    "correct": "B"
-  },
-  {
-    "question": "q 4",
-    "A":"ans a",
-    "B":"ans b",
-    "C":"ans c",
-    "D":"ans d",
-    "correct": "B"
-  }
-     
- ],
-    "user" : {
-      "username": "dfdf",
-      "testStatus" : "pending/done"
+  "totalQuestion": "4",
+
+  "questionBank": [
+    {
+      "question": "q 1",
+      "options" : {
+        "A" : "op a",
+        "B" : "op b",
+        "C" : "op c"
+      },
+      "correct": "B"
     },
-    
-    "DoneTest" : {
-      "username":"ff",
-      "totRight":"2",
-      "totWrong":"4",
-      "totSkip":"4",
-      "totEdited":"1"
+    {
+      "question": "q 2",
+       "options" : {
+        "A" : "op a",
+        "B" : "op b",
+        "C" : "op c"
+      },
+      "correct": "B"
+    },
+    {
+      "question": "q 3",
+       "options" : {
+        "A" : "op a",
+        "B" : "op b",
+        "C" : "op c"
+      },
+      "correct": "B"
+    },
+    {
+      "question": "q 4",
+       "options" : {
+        "A" : "op a",
+        "B" : "op b",
+        "C" : "op c"
+      },
+      "correct": "B"
     }
-    
-  }
+ ]
+}

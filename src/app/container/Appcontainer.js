@@ -9,7 +9,13 @@ import React from 'react';
 
 //IMPORT ACTION
  import { checkLogin, logout } from '../action/loginAction';
- import { loadQuestion } from '../action/questionAction';
+ 
+ import { loadQuestion,
+          nextQuestion,
+          prevQuestion,
+          submitQuestion 
+        } 
+ from '../action/questionAction';
 
 // IMPORTING UTILITY HELPER
  import { checkForAuth  } from '../utility/helper';
@@ -19,7 +25,6 @@ import { BrowserRouter as Router, Link, NavLink, Redirect, Prompt } from 'react-
 import Route from 'react-router-dom/Route';
 
 //All Components
-
 import { Summary } from '../components/portal/summary'
 import { Portal } from '../components/portal/portal';
 import { Login } from '../components/auth/login';
@@ -54,10 +59,15 @@ class App extends React.Component {
                 {/* // CHECK FOR AUTH THEN CHECK IF EXAM STILL PENDING FOR USER ELSE REDIRECT TO LOGIN OR SUMMARY PAGE */}
                 <Route exact path="/" render={() => (
                     checkForAuth() ? this.userBasicPageStructure(
-                        <Portal 
-                            loadQuestion={this.props.loadQuestion}
-                            questions={this.props.questions}
+                        
+                        <Portal
+                            questions={this.props.questions} 
+                            loadQuestion={this.props.loadQuestion} 
+                            nextQuestion= {this.props.nextQuestion}
+                            prevQuestion= {this.props.prevQuestion}
+                            submitQuestion= {this.props.submitQuestion}
                         />
+
                     ) :
                         <Redirect to="/login" />
                 )} />
@@ -83,11 +93,11 @@ class App extends React.Component {
 
 
                 {/* // WRONG ROUTE */}
-                 <Route exact path="/*" render={() => (
+                 {/* <Route exact path="/*" render={() => (
                     <div> 
                             404 NOT FOUND
                     </div> 
-                )} />
+                )} /> */}
 
 
 
@@ -118,10 +128,19 @@ const mapDispatchToProps = (dispatch) => {
         logout: () => {
             dispatch(logout());
         },
-        loadQuestion: (data) => {
-            dispatch(loadQuestion(data));
+        loadQuestion: (data, examStatus) => {
+            dispatch(loadQuestion(data, examStatus));
         },
-        
+        nextQuestion: () => {
+            dispatch(nextQuestion());
+        },
+        prevQuestion: () => {
+            dispatch(prevQuestion());
+        },
+        submitQuestion: () => {
+            dispatch(submitQuestion());
+        },    
+
     };
 };
 

@@ -18,7 +18,10 @@ export const Header = (props) => {
                        
                         <a href="#" onClick={() => {
                             props.logout();
+                            
                             cookie.deleteCookie("auth");
+                            cookie.deleteCookie("questions");
+
                             localStorage.clear();
                             window.location.pathname = "/login";
                         }}> Logout

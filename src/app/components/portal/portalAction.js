@@ -2,16 +2,45 @@ import React from "react";
 
 export class PortalAction extends React.Component {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
     }
 
+    
+
     render() {
+        const qno = this.props.questionNo;
+        const totQ = this.props.totalquestion;
+
+        const prevBtn = () => {
+            if (qno > 0) {
+                return (
+                    <button onClick={this.props.prevQuestion}> 
+                    Prev 
+                    </button>
+                )
+            }
+        }
+        const nextBtn = () => {
+            if (qno < (totQ - 1))  {
+                console.log('nextbtn also');
+                return (
+                    <button onClick={this.props.nextQuestion}> 
+                    Next 
+                    </button>
+                )
+            }
+        }
+
         return (
             <div>
-                <button > Prev </button>
-                <button > Submit </button>
-                <button > Next </button>
+                {prevBtn()}      
+                
+                <button onClick={this.props.submitQuestion}>  
+                     Submit 
+                </button>
+
+                {nextBtn()}
             </div>
         )
     }

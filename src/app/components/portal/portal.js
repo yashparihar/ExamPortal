@@ -6,56 +6,48 @@ const cookie = new CookieMap();
 import { PortalAction } from './portalAction';
 import { PortalQuestion } from './portalQuestion';
 
-import { databaseGetAll } from '../../utility/helper'
 
 export class Portal extends React.Component {
 
     constructor(props){
         super(props);
-
         if (cookie.getCookie('questions')){
-            console.log('exist already', cookie.getCookie('questions') );
-            props.loadQuestion( cookie.getCookie('questions') );
+            props.loadQuestion( cookie.getCookie('questions'), cookie.getCookie('examStatus') );
         } else {
             props.loadQuestion();
         }
     }
 
-    componentDidMount(){
-    
-    }
 
     render() {
-
         let questionBank = this.props.questions.questionBank;
-        console.log('dfdf', questionBank );
-
-        if  (this.props.questions.questionBank!==null) {
-
-            questionBank.map((msgs, index) => {
-                console.log(index + ' -> ' , msgs);      
-                return (<span> . </span>)
-            });
-
-            
-            let r = cookie.getCookie('questions')
-            console.log('->  ',r);
+        let questionToShow= '123';
+        
+        if  (questionBank!==null) {
+            questionToShow= questionBank[this.props.questions.questionNo] 
+            console.log('q to show ', questionToShow);
         }   
        
         return (
 
-            (this.props.questions.questionBank===null) ?
+            (questionBank===null) ?
             (
-                  <span>
-                      Loading question
-                   </span>     
+                <span>
+                  Loading question
+                </span>     
             ) :
             (
             <div>
                 <p> Exam portal </p>
                 <div>
-                    <PortalQuestion questions={this.props.questions}/>
-                    <PortalAction/>
+                    <PortalQuestion questions={this.props.questions} questionBody={questionToShow} />
+                    <PortalAction
+                        totalquestion= {this.props.questions.totalquestion}
+                        questionNo= {this.props.questions.questionNo}
+                        nextQuestion= {this.props.nextQuestion}
+                        prevQuestion= {this.props.prevQuestion}
+                        submitQuestion= {this.props.submitQuestion}
+                    />
                 </div>        
             </div>
             )
