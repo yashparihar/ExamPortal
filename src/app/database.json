@@ -1,0 +1,51 @@
+{
+  "totalQuestion": "10",
+ "questionBank": [
+   {
+     "question": "q 1",
+     "A":"ans a",
+     "B":"ans b",
+     "C":"ans c",
+     "D":"ans d",
+     "correct": "B"
+   },
+   {
+     "question": "q 2",
+     "A":"ans a",
+     "B":"ans b",
+     "C":"ans c",
+     "D":"ans d",
+     "correct": "B"
+   },
+   {
+    "question": "q 3",
+    "A":"ans a",
+    "B":"ans b",
+    "C":"ans c",
+    "D":"ans d",
+    "correct": "B"
+  },
+  {
+    "question": "q 4",
+    "A":"ans a",
+    "B":"ans b",
+    "C":"ans c",
+    "D":"ans d",
+    "correct": "B"
+  }
+     
+ ],
+    "user" : {
+      "username": "dfdf",
+      "testStatus" : "pending/done"
+    },
+    
+    "DoneTest" : {
+      "username":"ff",
+      "totRight":"2",
+      "totWrong":"4",
+      "totSkip":"4",
+      "totEdited":"1"
+    }
+    
+  }
